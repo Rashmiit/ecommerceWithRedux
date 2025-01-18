@@ -5,7 +5,7 @@ import React from 'react'
 const navigation = [
     { name: 'Home', href: '/', current: true },
     { name: 'Shop', href: 'shop', current: false },
-    { name: 'cart', href: 'cart', current: false },
+    { name: 'Cart', href: 'cart', current: false },
 ]
 
 function classNames(...classes) {

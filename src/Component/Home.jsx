@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import wirelessImage from '../assets/wireless-01.png';
 import heroImage from '../assets/hero-img.png';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import { FaStar } from "react-icons/fa6"
+import Cart from './Cart';
 
 import productImg01 from "../assets/double-sofa-01.png";
 import productImg02 from "../assets/double-sofa-02.png";
@@ -323,6 +324,20 @@ const sales = [{
 ]
 
 const Home = () => {
+
+
+    const [msg, setMsg] = useState('');
+    const handleAddToCart = () => {
+        setMsg('Product has been added to cart')
+        setTimeout(() => {
+            setMsg('');
+
+
+        }, 3000)
+
+    }
+
+
     const sliderSettings = {
         dots: false,
         arrows: false,
@@ -334,6 +349,11 @@ const Home = () => {
 
     return (
         <>
+            {msg && (
+                <div className="fixed top-4 right-4 bg-white-200 text-black p-4 rounded shadow-lg z-50">
+                    {msg}
+                </div>
+            )}
             <div className='bg-green-100'>
                 {/* Slider Section */}
                 <div className='relative overflow-hidden min-h-[600px] sm:min-h-[650px] flex justify-center items-center'>
@@ -375,7 +395,7 @@ const Home = () => {
                     <div className="bg-pink-200">
                         <div className='p-4 text-black-500 text-center'>
                             <div className='flex justify-center items-center p-1'>
-                                <img src='https://tse1.mm.bing.net/th?id=OIP.LFlWxwoNBj_rz-iF-xeZcgHaHa&pid=Api&P=0&h=220' alt='' className='rounded-full border border-white  w-10' />
+                                <img src='https://tse1.mm.bing.net/th?id=OIP.LFlWxwoNBj_rz-iF-xeZcgHaHa&pid=Api&P=0&h=220' alt='' className=' object-coverrounded-full border border-white  w-10' />
                             </div>
                             <h5 className='font-bold text-lg p-5'>Free Shipping</h5>
                             <p className='text-sm'>Lorem ipsum dolor sit amet consectetu</p>
@@ -385,7 +405,7 @@ const Home = () => {
                     <div className="bg-green-200">
                         <div className='p-4 text-black-500 text-center'>
                             <div className='flex justify-center items-center p-1'>
-                                <img src='https://tse1.mm.bing.net/th?id=OIP.3QV8eNDGmSpKgmEoLOe17wHaHa&pid=Api&P=0&h=220' alt='' className='rounded-full border border-white  w-10' />
+                                <img src='https://tse1.mm.bing.net/th?id=OIP.3QV8eNDGmSpKgmEoLOe17wHaHa&pid=Api&P=0&h=220' alt='' className='object-cover rounded-full border border-white  w-10' />
                             </div>
                             <h5 className='font-bold text-lg p-5'>Free Shipping</h5>
                             <p className='text-sm'>Lorem ipsum dolor sit amet consectetu</p>
@@ -395,7 +415,7 @@ const Home = () => {
                     <div className="bg-yellow-100">
                         <div className='p-4 text-black-500 text-center'>
                             <div className='flex justify-center items-center p-1'>
-                                <img src='https://tse1.mm.bing.net/th?id=OIP.Xv6rgr-xfuePNY5PQIzG6gHaHa&pid=Api&P=0&h=220' alt='' className='rounded-full border border-white  w-10' />
+                                <img src='https://tse1.mm.bing.net/th?id=OIP.Xv6rgr-xfuePNY5PQIzG6gHaHa&pid=Api&P=0&h=220' alt='' className='rounded-full border border-white  w-10 object-cover' />
                             </div>
                             <h5 className='font-bold text-lg p-5'>Free Shipping</h5>
                             <p className='text-sm'>Lorem ipsum dolor sit amet consectetu</p>
@@ -405,7 +425,7 @@ const Home = () => {
                     <div className="bg-blue-200">
                         <div className='p-4 text-black-500 text-center'>
                             <div className='flex justify-center items-center p-1'>
-                                <img src='https://tse4.mm.bing.net/th?id=OIP.fxTGVaJbAClTUD4tpePVHgHaHa&pid=Api&P=0&h=220' alt='' className='rounded-full border border-white  w-10' />
+                                <img src='https://tse4.mm.bing.net/th?id=OIP.fxTGVaJbAClTUD4tpePVHgHaHa&pid=Api&P=0&h=220' alt='' className='rounded-full border border-white  w-10 object-cover' />
                             </div>
                             <h5 className='font-bold text-lg p-5'>Free Shipping</h5>
                             <p className='text-sm'>Lorem ipsum dolor sit amet consectetu</p>
@@ -425,9 +445,29 @@ const Home = () => {
                     <div className='grid grid-cols-3 shadow-md gap-4 p-20'>
                         {products.map((product) => (
                             <div key={product.id} className='flex flex-col bg-white rounded shadow-md p-4'>
-                                <img src={product.imgUrl} className='w-30 h-30  mx-auto' />
+                                <div className='flex group'>
+                                    <button className='bg-blue-700 w-16 text-white rounded h-8'>30% off</button>
+                                    <img src='https://tse1.mm.bing.net/th?id=OIP.dmXb5_lNEfx4-x1jopEEdAHaGX&pid=Api&P=0&h=220' alt='heart' className='w-5 h-5 group-hover:opacity-100 transition-opacity duration-300  opacity-0  object-cover ml-auto' />
+                                </div>
+                                <img src={product.imgUrl} className=' w-full h-800  mx-auto object-cover' />
                                 <h1 className='w-50 text-3xl'>{product.productName}</h1>
-                                <h2 className='w-50 text-3xl'>${product.price}</h2>
+                                <div className='flex items-center gap-4'>
+                                    <FaStar className='text-yellow-500' />
+                                    <FaStar className='text-yellow-500' />
+                                    <FaStar className='text-yellow-500' />
+                                    <FaStar className='text-yellow-500' />
+                                    <FaStar className='text-yellow-500' />
+
+
+                                    <span>{product.rating}</span>
+                                </div>
+                                <div className='flex'>
+                                    <h2 className='w-50 text-3xl'>${product.price}</h2>
+                                    <button className='hover:bg-blue-900 hover:text-white ml-auto  w-12 h-11 rounded-full shadow-md bg-white text-4xl'>
+                                        +
+                                    </button>
+
+                                </div>
                             </div>
                         ))}
                     </div>
@@ -442,9 +482,27 @@ const Home = () => {
                     <div className='grid grid-cols-3 shadow-md gap-4 p-20' >
                         {newArrival.map((item) => (
                             <div key={item.id} className='flex flex-col shadow-md p-10 rounded'>
-                                <img src={item.imgUrl} alt='' />
+                                <img src={item.imgUrl} alt='' className='h-100 object-cover' />
                                 <h1 className='w-50 text-3xl'>{item.productName}</h1>
-                                <h2 className='w-50 text-3xl font-bold'>${item.price}</h2>
+
+                                <div className='flex'>
+                                <div className='flex items-center gap-4'>
+                                    <FaStar className='text-yellow-500' />
+                                    <FaStar className='text-yellow-500' />
+                                    <FaStar className='text-yellow-500' />
+                                    <FaStar className='text-yellow-500' />
+                                    <FaStar className='text-yellow-500' />
+
+
+                                    <span>{item.rating}</span>
+                                </div>
+
+
+                                    <h2 className='w-50 text-3xl font-bold'>${item.price}</h2>
+                                    <button className='hover:bg-blue-900 hover:text-white ml-auto  w-12 h-11 rounded-full shadow-md bg-white text-4xl' onClick={handleAddToCart}>
+                                        +
+                                    </button>
+                                </div>
                             </div>
                         ))}
                     </div>
@@ -456,9 +514,25 @@ const Home = () => {
                     <div className='grid grid-cols-3 shadow-md gap-4 p-20'>
                         {newArrival.map((items) => (
                             <div key={items.id} className='flex bg-white flex-col shadow-md p-10 rounded'>
-                                <img src={items.imgUrl} alt='' />
+                                <img src={items.imgUrl} alt='' className='object-cover' />
                                 <h1 className='w-50 text-3xl'>{items.productName}</h1>
-                                <h2 className='w-50 text-3xl font-bold'>{items.price}</h2>
+                                <div className='flex items-center gap-4'>
+                                    <FaStar className='text-yellow-500' />
+                                    <FaStar className='text-yellow-500' />
+                                    <FaStar className='text-yellow-500' />
+                                    <FaStar className='text-yellow-500' />
+                                    <FaStar className='text-yellow-500' />
+
+
+                                    <span>{items.rating}</span>
+                                </div>
+                                <div className='flex'>
+
+                                    <h2 className='w-50 text-3xl font-bold'>{items.price}</h2>
+                                    <button className=' hover:bg-blue-900 hover:text-white ml-auto  w-12 h-11 rounded-full shadow-md bg-white text-4xl' >
+                                        +
+                                    </button>
+                                </div>
                             </div>
                         ))}
                     </div>
