@@ -1,50 +1,45 @@
-import React from 'react'
+import React from 'react';
 
 function Footer() {
-  return (
-    <>
-    <footer className='flex mb-100 justify-center text-gray-400 bg-blue-900 p-20 gap-40 mt-auto'>
-                <div className='space-y-3 '>
-                    <div className='flex gap-4'>
-                        <img src='https://static.vecteezy.com/system/resources/previews/000/420/589/original/shopping-bag-icon-vector-illustration.jpg' alt='' className='bg-blue-200 w-10' />
-                        <h1 className='font-bold text-3xl text-white'>Mart</h1>
+    return (
+          <footer className="bg-blue-900 text-white p-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div>
+                        <h2 className="text-xl font-bold">Mart</h2>
+                        <p className="mt-2 text-gray-300">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, cumque.
+                        </p>
                     </div>
-                    <p className='w-80'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate ea ut perferendis porro voluptates officiis? Maxime, cumque. In eum, placeat odit ea quam asperiores maxime molestiae tempora rerum nobis </p>
-
-                </div>
-                <div className='space-y-3' >
-                    <h1 className='text-white text-2xl'>About Us</h1>
-                    <div className='space-y-3'>
-                        <p>Careers</p>
-                        <p>Our Strores</p>
-                        <p>Our Cares</p>
-                        <p>Terms & Conditions</p>
-                        <p>Privacy Policy</p>
+                    <div>
+                        <h2 className="text-xl font-bold">About Us</h2>
+                        <ul className="mt-2 space-y-2">
+                            <li>Careers</li>
+                            <li>Our Stores</li>
+                            <li>Our Cares</li>
+                            <li>Terms & Conditions</li>
+                            <li>Privacy Policy</li>
+                        </ul>
                     </div>
-                </div>
-                <div className='space-y-3' >
-                    <h1 className=' text-white text-2xl'>Customer Care</h1>
-                    <div className='space-y-3'>
-                        <p>Help Center</p>
-                        <p>How to Buy</p>
-                        <p>Track Your Order</p>
-                        <p>Corporate & Bulk Purchasing</p>
-                        <p>Returns & Refunds</p>
+                    <div>
+                        <h2 className="text-xl font-bold">Customer Care</h2>
+                        <ul className="mt-2 space-y-2">
+                            <li>Help Center</li>
+                            <li>How to Buy</li>
+                            <li>Track Your Order</li>
+                            <li>Returns & Refunds</li>
+                        </ul>
                     </div>
-                </div>
-                <div className='space-y-3' >
-                    <h1 className='text-white text-2xl '>Contact Us</h1>
-                    <div className='space-y-3'>
-                        <p>Marthahalli Bangalore India</p>
-                        <p>Email:abc35@gmail.com</p>
-                        <p>Phone:+91 67575687686</p>
+                    <div>
+                        <h2 className="text-xl font-bold">Contact Us</h2>
+                        <ul className="mt-2 space-y-2">
+                            <li>Marthahalli, Bangalore</li>
+                            <li>Email: abc35@gmail.com</li>
+                            <li>Phone: +91 67575687686</li>
+                        </ul>
                     </div>
                 </div>
-            </footer>
-
- 
-    </>
-  )
+            </footer> 
+    );
 }
 
-export default Footer
+export default Footer;
