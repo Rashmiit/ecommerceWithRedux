@@ -7,6 +7,11 @@ import Cart from './Component/Cart';
 import Shop from './Component/Shop';
 
 function App() {
+
+  const handleClick=(item)=>{
+    console.log(item);
+    
+  }
   return (
     <>
     <Navbar />
